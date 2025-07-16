@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Personle Portfolio website</title>
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="name.jpg" alt="">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Hire me</a></li>
+            </ul>
+        </nav>
+            <div class="detel">
+                <h1>I,m Surya<span> Prakash</span></h1>
+                <p>Creative professional with a passion for innovation.
+                <br>I deliver impactful solutions that drive success.
+                <br> Details and work experience web development.
+                </p>
+            <a href="#">DOWNLOAD CV</a>  
+            </div>
+            <div class="images">
+               <img src="shape.jpg" class="shape"> 
+               <img src="image.jpg" class="boy">
+            </div>
+    </div>
+</body>
+</html>
