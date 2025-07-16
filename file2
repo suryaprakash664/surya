@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="calculator-screen" id="screen" disabled />
+        <div class="calculator-keys">
+            <button type="button" class="operator" value="+">+</button>
+            <button type="button" class="operator" value="-">-</button>
+            <button type="button" class="operator" value="*">&times;</button>
+            <button type="button" class="operator" value="/">&divide;</button>
+            
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" value="0">0</button>
+            <button type="button" value=".">.</button>
+            <button type="button" class="all-clear" value="all-clear">AC</button>
+            <button type="button" class="equal-sign" value="=">=</button>
+        </div>
+    </div>
+    <script src="script.js">
+        document.addEventListener('DOMContentLoaded', function () {
+    // Your JavaScript code here
+});
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+javascript
+document.addEventListener('DOMContentLoaded', function () {
+    const calculator = document.querySelector('.calculator');
+    const screen = calculator.querySelector('.calculator-screen');
+    const keys = calculator.querySelector('.calculator-keys');
+
+    let currentInput = '';
+    let operator = '';
+    let previousInput = '';
+
+    keys.addEventListener('click', function (e) {
+        const target = e.target;
+        const value = target.value;
+
+        if (!target.matches('button')) {
+            return;
+        }
+
+        switch (value) {
+            case '+':
+            case '-':
+            case '*':
+            case '/':
+                operator = value;
+                previousInput = currentInput;
+                currentInput = '';
+                break;
+            case '=':
+                if (operator && previousInput !== '') {
+                    currentInput = eval(${previousInput} ${operator} ${currentInput});
+                    operator = '';
+                    previousInput = '';
+                }
+                break;
+            case 'all-clear':
+                currentInput = '';
+                operator = '';
+                previousInput = '';
+                break;
+            default:
+                currentInput += value;
+        }
+
+        screen.value = currentInput;
+    });
+});
+
+
+
+
+
+
+css
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.calculator {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-screen {
+    width: 100%;
+    height: 80px;
+    border: none;
+    background-color: #252525;
+    color: white;
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 10px;
+    font-size: 2.5rem;
+}
+
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: #eee;
+    padding: 20px;
+}
+
+button {
+    height: 60px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+.operator {
+    background-color: #f0a500;
+    color: white;
+}
+
+.all-clear {
+    background-color: #e60000;
+    color: white;
+}
+
+.equal-sign {
+    background-color: #4caf50;
+    color: white;
+    grid-column: span 2;
+}
